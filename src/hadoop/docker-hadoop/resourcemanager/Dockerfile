@@ -2,6 +2,8 @@ FROM bde2020/hadoop-base:2.0.0-hadoop3.2.1-java8
 
 MAINTAINER Ivan Ermilov <ivan.s.ermilov@gmail.com>
 
+# Comment by nileshp: 
+# Note: Following is the Port number for resourcemanager service started using docker-compose.yml Docker file
 HEALTHCHECK CMD curl -f http://localhost:8088/ || exit 1
 
 ADD run.sh /run.sh

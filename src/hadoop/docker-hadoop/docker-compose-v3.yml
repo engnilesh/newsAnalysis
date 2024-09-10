@@ -21,6 +21,7 @@ services:
           - node.hostname == akswnc4.aksw.uni-leipzig.de
       labels:
         traefik.docker.network: hbase
+        # Comment by nileshp: Following is the Port number for Namenode service started using docker-compose-v3.yml Docker file
         traefik.port: 50070
 
   datanode:

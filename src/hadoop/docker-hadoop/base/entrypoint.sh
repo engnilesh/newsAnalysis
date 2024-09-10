@@ -87,7 +87,9 @@ function wait_for_it()
     local max_try=100
     let i=1
 
-    nc -z $service $port
+    # Comment by nileshp:
+    # Following command is reponsible to check if the given service/conatainer is running on given port or not. IMP: Port number specified has to be correct.
+    nc -z $service $port 
     result=$?
 
     until [ $result -eq 0 ]; do
