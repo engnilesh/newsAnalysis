@@ -1,0 +1,6 @@
+
+# Ignore Hive server volume folder
+src/hadoop/docker-hadoop/hive_worldnews_data/
+
+# Ignore hive-metastore-postgresql volume folder
+src/hadoop/docker-hadoop/metastore-postgresql/postgresql/data
