@@ -4,3 +4,9 @@ src/hadoop/docker-hadoop/hive_worldnews_data/
 
 # Ignore hive-metastore-postgresql volume folder
 src/hadoop/docker-hadoop/metastore-postgresql/postgresql/data
+
+# Ignore airflow related folders
+src/airflow/docker-airflow/.env
+src/airflow/docker-airflow/dags/.env 
+src/airflow/docker-airflow/logs/
+src/airflow/docker-airflow/dags/__pycache__
