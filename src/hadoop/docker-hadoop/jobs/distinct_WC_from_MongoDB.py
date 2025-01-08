@@ -4,6 +4,8 @@ from langdetect import detect_langs
 import json
 import psycopg2
 from psycopg2 import sql
+
+sys.path.append('/home/nileshp/projects/newsanalysis/newsAnalysis/src/airflow/docker-airflow/dags')
 import db_config_xml_parser as db_config_xml_parser
 from datetime import datetime
 

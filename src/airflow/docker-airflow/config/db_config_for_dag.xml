@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<db_config>
+<postgres>
+   <dbname>postgres</dbname>
+   <user>airflow</user>
+   <password>airflow</password>
+   <host>localhost</host>
+   <port>5432</port>
+</postgres>
+<mongodb>
+   <dev>
+      <!-- uri is defined in .env file locally since it have credentials-->
+      <database>news</database>
+      <collection>Articles</collection>
+   </dev>
+   <test>
+      <uri>mongodb://mongodb:27017/</uri>
+      <database>test</database>
+      <collection>posts</collection>
+   </test>
+</mongodb>
+</db_config>
