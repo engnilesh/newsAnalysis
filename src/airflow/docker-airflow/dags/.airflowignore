@@ -1,3 +1,7 @@
 *newsAPI_To_MongoDB.py
 *jsonFile_To_MongoDB.py
 *distinct_WC_from_MongoDB.py
+*db_config_xml_parser.py
+*example_dag_conf.py
+*get_country_codes_from_pg.py
+*my_dynamic_dag.py

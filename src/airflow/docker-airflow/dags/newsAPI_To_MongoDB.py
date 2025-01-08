@@ -50,7 +50,7 @@ def connect_to_MongoDB(uri, database, collection):
         print(f"An error occurred: {e}")
         sys.exit(1)
 
-def main(api_url, parm, api_key, uri, database, collection):
+def main(api_url, parm, api_key, jcln, uri, database, collection):
     print(f"Parameters: {parm}")
 
     # Connect to MongoDB
@@ -60,7 +60,7 @@ def main(api_url, parm, api_key, uri, database, collection):
     final_api_url = api_url + parm + "apiKey=" + api_key
     api_data = get_api_data(final_api_url)
 
-    if api_data is None:
+    if api_data[jcln] == []: #To handle if we did not receive data from api for given parm
         print("No Data returned from API")
         sys.exit(1)
     else:
@@ -76,11 +76,11 @@ def main(api_url, parm, api_key, uri, database, collection):
             print(f"An error occurred while storing data: {e}")
             sys.exit(1)
         
-        news_data=api_data["articles"]
+        news_data=api_data[jcln]
 
         try:
             collection.insert_many(news_data)
-            print("Data inserted successfully into MongoDB!")
+            print(f"Data inserted successfully into MongoDB! \nConnection Details: db= {database} ,collection= {collection.name}")
             if os.path.exists(file_name):
                 os.remove(file_name)
                 print(f"File {file_name} has been removed succefully!")
@@ -98,6 +98,7 @@ if __name__ == "__main__":
     parser.add_argument("api_url", type=str, help="API URL")
     parser.add_argument("parm", type=str, help="parametters")
     parser.add_argument("api_key", type=str, help="API Key")
+    parser.add_argument("jcln", type=str, help="json containing list name") #To make our script dynamic to all type of json containing list
     
     # Define optional arguments with defaults and flags
     parser.add_argument("-u", "--uri", default="mongodb://localhost:27017/", help="uri for MongoDB")
@@ -106,4 +107,4 @@ if __name__ == "__main__":
 
     # Parse arguments from command line
     args = parser.parse_args()
-    main(api_url=args.api_url, parm=args.parm, api_key=args.api_key, uri=args.uri, database=args.database, collection=args.collection)
+    main(api_url=args.api_url, parm=args.parm, api_key=args.api_key, jcln=args.jcln, uri=args.uri, database=args.database, collection=args.collection)

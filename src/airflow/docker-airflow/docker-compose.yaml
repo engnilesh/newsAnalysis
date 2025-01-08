@@ -89,6 +89,10 @@ x-airflow-common:
 services:
   postgres:
     image: postgres:13
+    # Comment added by nileshp: This is required to distinguish postgresdb of airflow and the actual postgres(i.e. worldnews_pg_db, we have renamed this databse to tell airflow worker to do not pick this db instead use postgres which is default host/db name serched by airflow worker) where we will store data, otherwise it creates conflict. More details "Project_excel/Testing"
+    container_name: postgres
+    expose:
+      - 5432
     environment:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
