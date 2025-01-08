@@ -10,3 +10,7 @@ src/airflow/docker-airflow/.env
 src/airflow/docker-airflow/dags/.env 
 src/airflow/docker-airflow/logs/
 src/airflow/docker-airflow/dags/__pycache__
+
+#These two files got automatically added in this path, for now ignoring it, will check if it creates issue in future 
+src/airflow/docker-airflow/airflow.cfg
+src/airflow/docker-airflow/airflow.db
